@@ -1,0 +1,67 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1a2e4a;
+  --navy-mid: #243d5c;
+  --navy-light: #2e5282;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --bg: #f0f4f8;
+  --surface: #ffffff;
+  --border: #dde4ed;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --low: #16a34a;
+  --low-bg: #dcfce7;
+  --medium: #d97706;
+  --medium-bg: #fef3c7;
+  --high: #dc2626;
+  --high-bg: #fee2e2;
+  --critical: #7c3aed;
+  --critical-bg: #ede9fe;
+  --radius: 8px;
+}
+
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg); color: var(--text); font-size: 14px; }
+
+a { color: inherit; text-decoration: none; }
+
+button { cursor: pointer; font-family: inherit; }
+
+input, select, textarea {
+  font-family: inherit; font-size: 14px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 8px 12px; width: 100%;
+  background: var(--surface); color: var(--text);
+  outline: none;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(59,130,246,.15); }
+
+.page { padding: 24px 32px; max-width: 1200px; margin: 0 auto; }
+.page-title { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 24px; }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: var(--radius);
+  font-size: 13px; font-weight: 600; border: none;
+  transition: background .15s, opacity .15s;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-ghost { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+.btn-ghost:hover { background: var(--bg); }
+.btn-danger { background: #fee2e2; color: var(--high); }
+.btn-danger:hover { background: #fecaca; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .page { padding: 16px; }
+}
